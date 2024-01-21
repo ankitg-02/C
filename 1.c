@@ -1,56 +1,37 @@
-#include<stdio.h>
+#include <stdio.h>
+#include<stdlib.h>
 int main(){
-    int a[5],c,g=1;
-    while(g)
-    {   printf("1.enque \n");
-        printf("2.deque \n");
-        printf("3.display \n");
-        printf("4.exit \n");
-        printf("select the operation you want:");
-        scanf("%d",&c);
-        switch (c)
-        {
-            int m,f=-1,r=-1;
-            printf("enter the num");
-            scanf("%d",&m);
-             case 1:
-                    if(r==4){
-                        printf("overflow condition");
-                    }
-                    else if(f==-1 && r==-1)
-                    {
-                        f=r=0;
-                        a[f]=m;
-                    }
-                    else{
-                        r++;
-                        a[r]=m;
-                    }
-                        break;
-            case 2:
-                    if(f==4){
-                        printf("underflow condition");
-                    }
-                    else if(f==r)
-                        f=r=-1;
-                    }
-                    else{
-                        f++;
-                    }
-                    break;
-            case 3:
-                    for (int i = f; i <= r; i++)
-                    {
-                        printf("%d",a[i]);
-                    }
-                    
-                    break;
-            default:
-                    printf("enter the valid choice: ")
-                    break;
-                    }
-         printf("do you want to continue(0/1)");
-         scanf("%d",&c);
-    
+    int A[100], size;
+    int count=0;
+    int swapped;
 
+    printf("enter the size of array:");
+    scanf("%d",&size);
+
+    printf("Enter the elements: ");
+    for(int i=1; i<=size; i++){
+
+        scanf("%d",&A[i]);
+    }
+    for(int i=1;i<=size-1;i++){
+        swapped=0;
+        for (int j=1; j<=size-i;j++){
+            count++;
+            if(A[j]>A[j+1]){
+                int temp=A[j];
+                A[j]=A[j+1];
+                A[j+1]=temp;
+                swapped=1;
+            }        
+        }
+        if (swapped==0){
+            break;
+        } 
+    }
+    printf("After Sorting:");
+    for(int i=1; i<=size; i++){ 
+        printf(" %d ",A[i]);
+    }
+    printf("\nNumber of Comparisons: %d", count);
+    return 0;
 }
